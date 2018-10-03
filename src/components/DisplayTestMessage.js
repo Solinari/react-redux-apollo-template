@@ -9,7 +9,7 @@ const DisplayTestMessage = ({ message }) => (
 );
 
 const mapStateToProps = state => {
-    const message = getStateTestMessage(state).content;
+    const message = getStateTestMessage(state);
     return { message };
 }
 
