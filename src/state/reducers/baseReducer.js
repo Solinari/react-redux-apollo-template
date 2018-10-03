@@ -16,7 +16,7 @@ export default function(state = initialState, action) {
 
             return {
                 ...state,
-                settings: testPayload
+                newTest: testPayload
             }
         }
         default:

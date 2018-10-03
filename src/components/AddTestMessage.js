@@ -1,4 +1,5 @@
 import React from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { testActionMessage } from '../state/actions/actions';
 
@@ -7,6 +8,7 @@ class AddTestMessage extends React.Component {
     constructor(props) {
         super(props);
         this.state = { input: "" };
+        
     }
 
     updateInput = input => {
@@ -33,8 +35,14 @@ class AddTestMessage extends React.Component {
     }
 }
 
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({
+        testActionMessage
+    }, dispatch);
+}
+  
 // export redux connected component
 export default connect(
     null,
-    { testActionMessage }
+    mapDispatchToProps
 )(AddTestMessage);

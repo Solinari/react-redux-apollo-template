@@ -1,0 +1,1 @@
+export const getStateTestMessage = store => store.newTest;
