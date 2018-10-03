@@ -4,12 +4,12 @@ import { getStateTestMessage } from '../state/selectors/selectors';
 
 const DisplayTestMessage = ({ message }) => (
     <div className="test-message">
-        {message ? message : "No Message added yet"}
+        {message && message.length ? message : "No Message added yet"}
     </div>
 );
 
 const mapStateToProps = state => {
-    const message = getStateTestMessage(state);
+    const message = getStateTestMessage(state).content;
     return { message };
 }
 
