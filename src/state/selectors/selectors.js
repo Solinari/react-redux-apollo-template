@@ -1,1 +1,1 @@
-export const getStateTestMessage = store => store.baseReducer.newTest.content;
+export const getStateTestMessage = store => store.baseReducer.newTest.text;
