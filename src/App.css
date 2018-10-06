@@ -30,3 +30,28 @@
     transform: rotate(360deg);
   }
 }
+
+.Grid {
+  padding: 8px;
+}
+
+.Column {
+  margin: 8px;
+  border: 1px solid lightgray;
+  border-radius: 2px;
+}
+
+.Column-Title {
+  padding: 8px;
+}
+
+.Item-List {
+  padding:8px;
+}
+
+.Item {
+  border: 1px solid lightgray;
+  border-radius: 2px;
+  padding: 8px;
+  margin-bottom: 8px;
+}

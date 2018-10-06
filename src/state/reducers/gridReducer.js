@@ -1,12 +1,14 @@
 import { HYDRATE_GRID } from '../../constants/actionTypes';
 import { v4 } from 'uuid';
 
-const itemIdInitializer = Array.apply(null, Array(4)).map(() => { return v4(); })
+const itemIdInitializer = Array.apply(null, Array(4)).map(() => { return v4(); });
+
 // init state
 const initialState = {
     items: {},
     columns: {},
-    columnOrder: [`column-${itemIdInitializer[0]}`]
+    columnOrder: [`${itemIdInitializer[0]}`],
+    isLoaded: false
 }
 
 // reducer definition
@@ -19,7 +21,8 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 items: hydrateItems(),
-                columns: hydrateColumns()
+                columns: hydrateColumns(),
+                isLoaded: true
             }
         }
         default:
@@ -33,25 +36,25 @@ export default function(state = initialState, action) {
 // reducer helper functions
 function hydrateItems() {
     return {
-        [`item-${itemIdInitializer[0]}`]: {
-            id: `item-${itemIdInitializer[0]}`, content: `item ${0}`
+        [`${itemIdInitializer[0]}`]: {
+            id: `${itemIdInitializer[0]}`, content: `item ${0}`
         },
-        [`item-${itemIdInitializer[1]}`]: {
-            id: `item-${itemIdInitializer[1]}`, content: `item ${1}`
+        [`${itemIdInitializer[1]}`]: {
+            id: `${itemIdInitializer[1]}`, content: `item ${1}`
         },
-        [`item-${itemIdInitializer[2]}`]: {
-            id: `item-${itemIdInitializer[2]}`, content: `item ${2}`
+        [`${itemIdInitializer[2]}`]: {
+            id: `${itemIdInitializer[2]}`, content: `item ${2}`
         },
-        [`item-${itemIdInitializer[3]}`]: {
-            id: `item-${itemIdInitializer[3]}`, content: `item ${3}`
+        [`${itemIdInitializer[3]}`]: {
+            id: `${itemIdInitializer[3]}`, content: `item ${3}`
         }
     };
 }
 
 function hydrateColumns() {
     return {
-        [`column-${itemIdInitializer[0]}`]: {
-            id: `column-${itemIdInitializer[0]}`,
+        [`${itemIdInitializer[0]}`]: {
+            id: `${itemIdInitializer[0]}`,
             title: 'Sample Column',
             itemIds: itemIdInitializer
         }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AddTestMessage from './components/AddTestMessage';
 import DisplayTestMessage  from './components/DisplayTestMessage';
+import Grid from './components/grid/Grid';
 import './App.css';
 
 class App extends Component {
@@ -10,6 +11,7 @@ class App extends Component {
         <header className="App-header">
           <AddTestMessage/>
           <DisplayTestMessage/>
+          <Grid/>
         </header>
       </div>
     );
