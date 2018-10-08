@@ -1,13 +1,14 @@
-import { HYDRATE_GRID } from '../../constants/actionTypes';
+import { HYDRATE_GRID, UPDATE_GRID_COLUMN_ORDER } from '../../constants/actionTypes';
 import { v4 } from 'uuid';
 
 const itemIdInitializer = Array.apply(null, Array(4)).map(() => { return v4(); });
+const columnIdInitializer = Array.apply(null, Array(2)).map(() => { return v4(); });
 
 // init state
 const initialState = {
     items: {},
     columns: {},
-    columnOrder: [`${itemIdInitializer[0]}`],
+    columnOrder: {},
     isLoaded: false
 }
 
@@ -22,9 +23,25 @@ export default function(state = initialState, action) {
                 ...state,
                 items: hydrateItems(),
                 columns: hydrateColumns(),
+                columnOrder: columnIdInitializer,
                 isLoaded: true
             }
         }
+
+        case UPDATE_GRID_COLUMN_ORDER: {
+
+            const newColumnOrder = Array.from(this.state.columnOrder);
+            
+            // splice the columns 
+            newColumnOrder.splice(action.payload.source.index, 1);
+            newColumnOrder.splice(action.payload.destination.index, 0, action.payload.draggableId);
+
+            return {
+                ...state,
+                columnOrder: newColumnOrder
+            }
+        }
+
         default:
             return state;
 
@@ -53,9 +70,14 @@ function hydrateItems() {
 
 function hydrateColumns() {
     return {
-        [`${itemIdInitializer[0]}`]: {
-            id: `${itemIdInitializer[0]}`,
-            title: 'Sample Column',
+        [`${columnIdInitializer[0]}`]: {
+            id: `${columnIdInitializer[0]}`,
+            title: 'Sample Column 1',
+            itemIds: itemIdInitializer
+        },
+        [`${columnIdInitializer[1]}`]: {
+            id: `${columnIdInitializer[1]}`,
+            title: 'Sample Column 2',
             itemIds: itemIdInitializer
         }
     };

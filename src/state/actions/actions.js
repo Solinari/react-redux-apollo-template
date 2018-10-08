@@ -1,4 +1,4 @@
-import { HYDRATE_GRID, TEST_ACTION } from '../../constants/actionTypes';
+import { HYDRATE_GRID, TEST_ACTION, UPDATE_GRID_COLUMN_ORDER } from '../../constants/actionTypes';
 import { v4 } from 'uuid';
 
 export const testActionMessage = content => ({
@@ -12,3 +12,13 @@ export const testActionMessage = content => ({
 export const hydrateGridAction = () => ({
     type: HYDRATE_GRID
 });
+
+export const updateGridColumnOrder = (destination, source, draggableId, type ) => ({
+    type: UPDATE_GRID_COLUMN_ORDER,
+    payload: {
+        destination,
+        source,
+        draggableId,
+        type
+    }
+})

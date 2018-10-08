@@ -31,6 +31,12 @@
   }
 }
 
+/* Grid Styles */
+
+.Droppable-Grid {
+  display: flex;
+}
+
 .Grid {
   padding: 8px;
 }
