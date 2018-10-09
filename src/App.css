@@ -35,6 +35,10 @@
 
 .Droppable-Grid {
   display: flex;
+  padding: 8px;
+  margin: 8px;
+  border: 1px solid lightgray;
+  border-radius: 2px;
 }
 
 .Grid {
@@ -45,6 +49,7 @@
   margin: 8px;
   border: 1px solid lightgray;
   border-radius: 2px;
+  background-color: #282c34;
 }
 
 .Column-Title {
