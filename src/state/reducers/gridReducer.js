@@ -30,9 +30,10 @@ export default function(state = initialState, action) {
 
         case UPDATE_GRID_COLUMN_ORDER: {
 
-            const newColumnOrder = Array.from(this.state.columnOrder);
+            const newColumnOrder = Array.from(state.columnOrder);
             
-            // splice the columns 
+            // splice the columns
+            console.log(action);
             newColumnOrder.splice(action.payload.source.index, 1);
             newColumnOrder.splice(action.payload.destination.index, 0, action.payload.draggableId);
 

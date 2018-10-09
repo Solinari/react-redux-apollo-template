@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { hydrateGridAction, updateGridColumnOrder } from '../../state/actions/actions';
 import { getInitialGrid } from '../../state/selectors/selectors';
 import Column from './Column';
-import DroppableContainer from './../helpers/DroppableContainer';
 import { COLUMN } from '../../constants/constants';
 
 // grid is the container component
@@ -29,7 +28,7 @@ class Grid extends React.Component {
             return;
         }
 
-        this.props.updateGridColumnOrder({ destination, source, draggableId, type }); // dispatch action
+        this.props.updateGridColumnOrder( destination, source, draggableId, type ); // dispatch action
     }
 
     render() {
@@ -42,10 +41,10 @@ class Grid extends React.Component {
                 type={COLUMN}
             >
                 {provided => (
-                    <DroppableContainer 
+                    <div 
                     className="droppable-grid"
-                    innerRef={provided.innerRef}
-                    provided={provided}
+                    ref={provided.innerRef}
+                    {...provided.droppableProps}
                     >
                     {grid.columnOrder.map((columnId, index) => {
 
@@ -55,7 +54,7 @@ class Grid extends React.Component {
                         return <Column key={column.id} column={column} items={items} index={index}/>;
                     })}
                     {provided.placeholder}
-                    </DroppableContainer>   
+                    </div>   
                 )}
             </Droppable>
         </DragDropContext>
