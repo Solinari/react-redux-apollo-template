@@ -42,7 +42,7 @@ class Grid extends React.Component {
             >
                 {provided => (
                     <div 
-                    className="droppable-grid"
+                    className="Droppable-Grid"
                     ref={provided.innerRef}
                     {...provided.droppableProps}
                     >
