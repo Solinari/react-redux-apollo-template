@@ -33,7 +33,7 @@ export default function(state = initialState, action) {
             const newColumnOrder = Array.from(state.columnOrder);
             
             // splice the columns
-            console.log(action);
+            // TODO: replace 1 and 0 with actual indexes for many reordering
             newColumnOrder.splice(action.payload.source.index, 1);
             newColumnOrder.splice(action.payload.destination.index, 0, action.payload.draggableId);
 
