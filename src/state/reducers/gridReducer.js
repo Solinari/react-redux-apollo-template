@@ -2,7 +2,7 @@ import { HYDRATE_GRID, UPDATE_GRID_COLUMN_ORDER } from '../../constants/actionTy
 import { v4 } from 'uuid';
 
 const itemIdInitializer = Array.apply(null, Array(4)).map(() => { return v4(); });
-const columnIdInitializer = Array.apply(null, Array(2)).map(() => { return v4(); });
+const columnIdInitializer = Array.apply(null, Array(5)).map(() => { return v4(); });
 
 // init state
 const initialState = {
@@ -79,6 +79,21 @@ function hydrateColumns() {
         [`${columnIdInitializer[1]}`]: {
             id: `${columnIdInitializer[1]}`,
             title: 'Sample Column 2',
+            itemIds: itemIdInitializer
+        },
+        [`${columnIdInitializer[2]}`]: {
+            id: `${columnIdInitializer[2]}`,
+            title: 'Sample Column 3',
+            itemIds: itemIdInitializer
+        },
+        [`${columnIdInitializer[3]}`]: {
+            id: `${columnIdInitializer[3]}`,
+            title: 'Sample Column 4',
+            itemIds: itemIdInitializer
+        },
+        [`${columnIdInitializer[4]}`]: {
+            id: `${columnIdInitializer[4]}`,
+            title: 'Sample Column 5',
             itemIds: itemIdInitializer
         }
     };
